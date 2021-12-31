@@ -11,14 +11,13 @@ const server = http.createServer(app)
 const io = socket(server)
 const port = process.env.PORT | 5000
 
-// const publicDirectoryPath = path.join(__dirname, '../public')
-
 app.use(express.json())
-app.use(express.static(path.join(__dirname, '../public')))
+app.set('view engine', 'hbs')
+app.set('views', path.join(__dirname, '../public'))
 
-// app.get("/", (req, res) => {
-//     res.render();
-// });
+const publicDirectoryPath = path.join(__dirname, '../public')
+app.use(express.static(publicDirectoryPath))
+
 
 io.on('connection', (socket) => {
     console.log("New Websocket connection");
