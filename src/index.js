@@ -9,7 +9,7 @@ const { getUsersInRoom, getUser, removeUser, addUser } = require("./utils/users"
 const app = express()
 const server = http.createServer(app)
 const io = socket(server)
-const port = process.env.PORT | 5002
+const port = process.env.PORT | 5000
 
 const publicDirectoryPath = path.join(__dirname, '../public')
 
