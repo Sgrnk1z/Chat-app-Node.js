@@ -74,6 +74,6 @@ io.on('connection', (socket) => {
     })
 })
 
-server.listen(port, () => {
-    console.log("Server is up and running on " + port);
+server.listen(process.env.PORT | 5000, () => {
+    console.log("Server is up and running on " + process.env.PORT | 5000);
 })
