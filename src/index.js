@@ -3,7 +3,6 @@ const http = require('http')
 const path = require('path')
 const socket = require('socket.io')
 const filterBadWords = require('bad-words')
-require('../db/mongoose')
 const generateMessage = require('../src/utils/messages')
 const { getUsersInRoom, getUser, removeUser, addUser } = require("./utils/users")
 
