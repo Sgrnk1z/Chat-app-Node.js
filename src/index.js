@@ -11,10 +11,14 @@ const server = http.createServer(app)
 const io = socket(server)
 const port = process.env.PORT | 5000
 
-const publicDirectoryPath = path.join(__dirname, '../public')
+// const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.use(express.json())
-app.use(express.static(publicDirectoryPath))
+app.use(express.static(path.join(__dirname, '../public')))
+
+// app.get("/", (req, res) => {
+//     res.render();
+// });
 
 io.on('connection', (socket) => {
     console.log("New Websocket connection");
@@ -74,6 +78,6 @@ io.on('connection', (socket) => {
     })
 })
 
-server.listen(process.env.PORT | 5000, () => {
-    console.log("Server is up and running on " + process.env.PORT | 5000);
+server.listen(port, () => {
+    console.log("Server is up and running on " + port);
 })
