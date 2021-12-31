@@ -9,7 +9,7 @@ const { getUsersInRoom, getUser, removeUser, addUser } = require("./utils/users"
 const app = express()
 const server = http.createServer(app)
 const io = socket(server)
-const port = process.env.PORT | 5000
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json())
 app.set('view engine', 'hbs')
@@ -77,6 +77,6 @@ io.on('connection', (socket) => {
     })
 })
 
-server.listen(port, () => {
-    console.log("Server is up and running on " + port);
+server.listen(PORT, () => {
+    console.log("Server is up and running on " + PORT);
 })
